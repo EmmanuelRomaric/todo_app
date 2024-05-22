@@ -10,7 +10,7 @@ export function UpdateProfileInfo() {
     return (
         <form action={action} className="bg-white w-full sm:w-96 m-auto p-4 mt-4 rounded-md shadow-md">
             <h1>Profile Information</h1>
-            <p className="text-gray-400 text-sm">Update your account's profile information and email address.</p>
+            <p className="text-gray-400 text-sm">Update your profile information and email address.</p>
             <div className='my-4'>
           <label className='block' htmlFor="name">Name</label>
           <input 
