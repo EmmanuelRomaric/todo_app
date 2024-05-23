@@ -53,14 +53,14 @@ export type State = {
   .min(1, { message: 'The password field is required.' })
   .min(6, { message: 'The password must be at least 6 characters long' })
   .trim()
-  .refine((val)=>val===SignupFormSchema.password, {message: "The password field confirmation does not match"}),
+  ,
 
   password_confirmation: z
   .string()
   .min(1, { message: 'The password confirmation field is required.' })
   .trim(), 
  
-})
+}).refine((data)=>data.password===data.password_confirmation, {message: "The password field confirmation does not match", path:["password_confirmation"]})
 ;
 
 export type FormState =

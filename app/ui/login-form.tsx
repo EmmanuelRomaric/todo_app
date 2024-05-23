@@ -1,13 +1,6 @@
 'use client';
 import { useFormState, useFormStatus } from 'react-dom';
 import { login } from '@/app/lib/actions';
-import {
-    AtSymbolIcon,
-    KeyIcon,
-    ExclamationCircleIcon,
-    Bars4Icon,
-  } from '@heroicons/react/24/outline';
-  import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { Button } from './button';
 import Link from 'next/link';
 import AppLogo from './app-logo';
@@ -46,9 +39,10 @@ export default function LoginForm() {
         </div>
 
         {state?.message && <p className='text-red-500 font-light'>{state.message}</p>}
-        <div className='flex'>
-          <div className='basis-2/3'></div>
-          <div className='basis-1/3'>
+        
+          <div className='grid grid-cols-4'>
+          <Link className='col-start-1 col-span-3 font-light flex justify-end items-center underline text-gray-700 hover:text-black text-sm' href={"/signup"}> Not yet registered? </Link>
+          <div className='col-start-4 col-span-1 flex justify-end'>
        <LoginButton />
        </div>
        </div>
@@ -62,8 +56,8 @@ export default function LoginForm() {
     const { pending } = useFormStatus();
    
     return (
-      <Button className="mt-4 w-full" aria-disabled={pending}>
-        Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
+      <Button className="" aria-disabled={pending}>
+        <p>Log in</p>
       </Button>
     );
   }
