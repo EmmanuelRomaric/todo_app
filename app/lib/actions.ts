@@ -169,8 +169,7 @@ export async function login(state: FormState, formData: FormData) {
 
         }
       }
-     
-   console.log(data.rows[0].id)
+
   // 4. Create user session
   await createSession(data.rows[0].id);
 

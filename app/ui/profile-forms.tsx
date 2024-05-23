@@ -109,12 +109,12 @@ export function DeleteAccount() {
     const [state, action] = useFormState(deleteAccount, undefined)
     const [visible, setVisible] = useState(false)
 
-    var modal = document.getElementById('id01');
-    window.onclick = function(event) {
-        if(event.target==modal) {
-            setVisible(false)
-        }
-    }
+    // var modal = document.getElementById('id01');
+    // window.onclick = function(event) {
+    //     if(event.target==modal) {
+    //         setVisible(false)
+    //     }
+    // }
     return(
     
         <div>
@@ -123,7 +123,7 @@ export function DeleteAccount() {
                     <p className="text-gray-400 text-sm">Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.</p>
             
                 <div className='flex justify-end mt-8'>
-                <Button className=" flex justify-center bg-red-500" onClick={()=>setVisible(true)}>
+                <Button className=" flex justify-center bg-red-500 hover:bg-red-500/70 active:bg-red-500" onClick={()=>setVisible(true)}>
                 DELETE ACCOUNT
                 </Button>
                 </div>
@@ -134,13 +134,17 @@ export function DeleteAccount() {
                         'fixed z-10 w-full h-full top-0 left-0 bg-black overflow-auto bg-black/50 p-auto': visible,
                         '': !visible
 
-                    })} id="id01">
+                    })} id="id01" onClick={()=>{
+                        
+                        setVisible(false)}}>
                   <form action={action} className={clsx("bg-white w-full sm:w-96 m-auto p-4 mt-4 rounded-md shadow-md",
                   {
                     'invisible': !visible,
                     'visible': visible,
                   }
-                  )}>
+                  )} onClick={(e)=>{
+                    e.stopPropagation();
+                   }}>
                         <h1 className="text-red-400">Are you sure you want to delete your account?</h1>
                         <p className="text-sm">Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.</p>
                         <div className='my-4'>
@@ -156,7 +160,7 @@ export function DeleteAccount() {
                     <Button className=" flex justify-center bg-black" type="button" onClick={handleClick}>
                     CANCEL
                     </Button>
-                    <Button className=" flex justify-center bg-red-500" type="submit">
+                    <Button className=" flex justify-center bg-red-500 hover:bg-red-500/70 active:bg-red-500" type="submit">
                     DELETE ACCOUNT
                     </Button>
                     </div>

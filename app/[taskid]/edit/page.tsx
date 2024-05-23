@@ -6,9 +6,7 @@ import { notFound } from 'next/navigation';
 export default async function Page({ params }: { params: { taskid: string } }) {
 
     const taskid = params.taskid;
-    //console.log(taskid)
     const task = await fetchTaskById(Number(taskid));
-    //console.log(task)
 
     if (!task) {
       notFound();

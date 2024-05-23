@@ -19,8 +19,6 @@ export async function fetchTasks () {
         SELECT * FROM tasks
         WHERE taskid=${taskid};
       `;
-      console.log(taskid)
-      console.log(data.rows)
       return data.rows[0];
       }
     catch (error) {
